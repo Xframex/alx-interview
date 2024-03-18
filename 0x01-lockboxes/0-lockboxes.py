@@ -4,6 +4,7 @@ def canUnlockAll(boxes):
     if not boxes:
         return False
 
+    num_boxes = len(boxes)
     visited = set()
     visited.add(0)
 
@@ -14,8 +15,8 @@ def canUnlockAll(boxes):
         keys = boxes[current_box]
 
         for key in keys:
-            if key < len(boxes) and key not in visited:
+            if key < num_boxes and key not in visited:
                 visited.add(key)
                 queue.append(key)
 
-    return len(visited) == len(boxes)
+    return len(visited) == num_boxes
